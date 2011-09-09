@@ -53,4 +53,7 @@ DO_GIT=@echo -- git $1 $2; \
 bem-bl:
 	$(call DO_GIT,git://github.com/bem/bem-bl.git,$@)
 
+my-lib:
+	$(call DO_GIT,git://github.com/toivonen/yac2011-bem-js-docs.git,$@)
+
 .PHONY: all
