@@ -1,11 +1,11 @@
-all:: bem-bl
+all:: bem-bl my-lib
 all:: $(patsubst %.bemjson.js,%.html,$(wildcard pages/*/*.bemjson.js))
 
 BEM_BUILD=bem build \
 	-l bem-bl/blocks-common/ \
 	-l bem-bl/blocks-desktop/ \
 	-l blocks/ \
-	-l my-blocks/ \
+	-l my-lib/blocks/ \
 	-l $(@D)/blocks \
 	-d $< \
 	-t $1 \
@@ -48,6 +48,7 @@ DO_GIT=@echo -- git $1 $2; \
 			cd $2 && git pull origin master; \
 		else \
 			git clone $1 $2; \
+			cd $2 && git checkout -b master remotes/origin/master; \
 	fi
 
 bem-bl:
