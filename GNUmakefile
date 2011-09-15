@@ -1,11 +1,10 @@
-all:: bem-bl my-lib
+all:: bem-bl
 all:: $(patsubst %.bemjson.js,%.html,$(wildcard pages/*/*.bemjson.js))
 
 BEM_BUILD=bem build \
 	-l bem-bl/blocks-common/ \
 	-l bem-bl/blocks-desktop/ \
 	-l blocks/ \
-	-l my-lib/blocks/ \
 	-l $(@D)/blocks \
 	-d $< \
 	-t $1 \
@@ -53,8 +52,5 @@ DO_GIT=@echo -- git $1 $2; \
 
 bem-bl:
 	$(call DO_GIT,git://github.com/bem/bem-bl.git,$@)
-
-my-lib:
-	$(call DO_GIT,git://github.com/toivonen/yac2011-bem-js-docs.git,$@)
 
 .PHONY: all
