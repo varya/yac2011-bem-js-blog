@@ -14,7 +14,6 @@
             { elem: 'p', content: 'Что такое методология БЭМ' },
             {
                 block: 'b-cut',
-                mods: { animation: 'smooth'},
                 content: [
                     { elem: 'opener', content: 'видео' },
                     { elem: 'content', content:
@@ -26,7 +25,6 @@
             { elem: 'p', content: 'bemhtml — это надмножество xjst, позволяющее писать шаблоны блоков, которые затем компилируются в plain JavaScript. При помощи таких шаблонов из JSON-описания страницы (bemjson)  можно получить html.' },
             {
                 block: 'b-cut',
-                mods: { animation: 'fade'},
                 content: [
                     { elem: 'opener', content: 'видео' },
                     { elem: 'content', content:
