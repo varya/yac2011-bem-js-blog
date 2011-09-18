@@ -57,14 +57,13 @@ bem-bl:
 my-lib:
 	$(call DO_GIT,git://github.com/toivonen/yac2011-bem-js-docs.git,$@)
 
+BRANCHES=$(shell git branch -a | grep remotes | grep -v HEAD | grep -v v1-no-js)
+
 .PRECIOUS: branches
 branches:
-	echo 'Getting all branches'
-	git branch --track animation remotes/origin/animation
-	git branch --track cutted remotes/origin/cutted
-	git branch --track first remotes/origin/first
-	git branch --post-js remotes/origin/post-js
-	git branch --post-no-js remotes/origin/post-no-js
+	for branch in $(BRANCHES); do \
+		git branch --track $${branch##*/} $$branch; \
+	done
 
 .PRECIOUS: clean
 clean:
